@@ -1,3 +1,11 @@
+using System;
+using System.IO;
+using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Reflection.Metadata;
+using iTextSharp.text.pdf.parser;
+using Xceed.Words.NET;
 
 namespace WinFormsApp123
 {
