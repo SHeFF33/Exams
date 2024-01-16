@@ -21,11 +21,13 @@ namespace WinFormsApp123
             savefile.Filter = "Word Documents (*.docx)|*.docx";
             if (savefile.ShowDialog() == DialogResult.OK)
             {
+                  try
+                {
 
                     string filePath = savefile.FileName;
                     using (DocX document = DocX.Create(filePath))
                     {
-  var zag = document.InsertParagraph();
+                    var zag = document.InsertParagraph();
                         zag.Append(textBox1.Text);
                         zag.Alignment = Xceed.Document.NET.Alignment.left;
 
@@ -118,8 +120,14 @@ namespace WinFormsApp123
                         document.Save();
                     }
 
+                    MessageBox.Show("Файл успешно сохранен!");
                     textBox1.Clear();
-
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Не удалось сохранить файл!");
+                }
+            
             }
 
         }
